@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5879DB9220A18DB7009E90CE /* ADTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5879DB9120A18DB7009E90CE /* ADTableViewCell.m */; };
 		60B0409E2069CB820002CCDF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B0409D2069CB820002CCDF /* AppDelegate.m */; };
 		60B040A12069CB820002CCDF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B040A02069CB820002CCDF /* ViewController.m */; };
 		60B040A42069CB820002CCDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60B040A22069CB820002CCDF /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5879DB9020A18DB7009E90CE /* ADTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTableViewCell.h; sourceTree = "<group>"; };
+		5879DB9120A18DB7009E90CE /* ADTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTableViewCell.m; sourceTree = "<group>"; };
 		60B040992069CB820002CCDF /* testAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B0409C2069CB820002CCDF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		60B0409D2069CB820002CCDF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 				60B040A72069CB820002CCDF /* LaunchScreen.storyboard */,
 				60B040AA2069CB820002CCDF /* Info.plist */,
 				60B040AB2069CB820002CCDF /* main.m */,
+				5879DB9020A18DB7009E90CE /* ADTableViewCell.h */,
+				5879DB9120A18DB7009E90CE /* ADTableViewCell.m */,
 				60B040B22069CBD80002CCDF /* GW_AdCell.h */,
 				60B040B32069CBD80002CCDF /* GW_AdCell.m */,
 				60B040B42069CBD80002CCDF /* GW_AdCell.xib */,
@@ -156,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60B040B52069CBD80002CCDF /* GW_AdCell.m in Sources */,
+				5879DB9220A18DB7009E90CE /* ADTableViewCell.m in Sources */,
 				60B040A12069CB820002CCDF /* ViewController.m in Sources */,
 				60B040AC2069CB820002CCDF /* main.m in Sources */,
 				60B0409E2069CB820002CCDF /* AppDelegate.m in Sources */,

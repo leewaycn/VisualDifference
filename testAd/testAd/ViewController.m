@@ -8,18 +8,21 @@
 
 #import "ViewController.h"
 #import "GW_AdCell.h"
-
+#import "ADTableViewCell.h"
 #define HEIGHT 150
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@end
+    @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+    [self.tableView registerClass:[ADTableViewCell class] forCellReuseIdentifier:@"ADTableViewCell"];
+
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -31,6 +34,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 15 || indexPath.row ==5) {
+        return HEIGHT;
+    }
+    else if (indexPath.row==7   ){
         return HEIGHT;
     }
     return 100;
@@ -45,13 +51,31 @@
         }
         UIImage *bg = [UIImage imageNamed:@"a.jpg"];
         CGFloat scW = [UIScreen mainScreen].bounds.size.width;
-        
+
         cell.width.constant = scW;
         cell.height.constant = [UIScreen mainScreen].bounds.size.height;
         cell.img.image = bg;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
-    }else{
+    }else if (indexPath.row == 7){
+
+        ADTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ADTableViewCell"];
+
+        UIImage *bg = [UIImage imageNamed:@"a.jpg"];
+        CGFloat scW = [UIScreen mainScreen].bounds.size.width;
+
+        //        cell.width.constant = scW;
+        //        cell.height.constant = [UIScreen mainScreen].bounds.size.height;
+        cell.sc.frame = self.view.bounds;
+        cell.img.frame = self.view.bounds;
+        cell.img.image = bg;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+
+
+        return cell;
+
+    } else {
         static NSString *cellID = @"cellId";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
@@ -70,11 +94,27 @@
             GW_AdCell *adCell = obj;
             CGFloat maxOff = adCell.height.constant - HEIGHT;
             CGFloat scrollOff = scrollView.contentOffset.y - adCell.frame.origin.y + [UIScreen mainScreen].bounds.size.height - HEIGHT ;
+            NSLog(@"%f %f",maxOff,scrollOff);
             if (maxOff <= scrollOff) {
                 [adCell.sc setContentOffset:CGPointMake(0,0)];
             }else if (scrollOff < 0){
                 [adCell.sc setContentOffset:CGPointMake(0,maxOff)];
-                
+
+            } else{
+                [adCell.sc setContentOffset:CGPointMake(0,(maxOff - scrollOff))];
+            }
+        }
+        if ([obj isKindOfClass:[ADTableViewCell class]]) {
+            ADTableViewCell *adCell = obj;
+            CGFloat maxOff = [UIScreen mainScreen].bounds.size.height- HEIGHT;
+            CGFloat scrollOff = scrollView.contentOffset.y - adCell.frame.origin.y + [UIScreen mainScreen].bounds.size.height - HEIGHT ;
+            NSLog(@"2222 %f %f",maxOff,scrollOff);
+
+            if (maxOff <= scrollOff) {
+                [adCell.sc setContentOffset:CGPointMake(0,0)];
+            }else if (scrollOff < 0){
+                [adCell.sc setContentOffset:CGPointMake(0,maxOff)];
+
             } else{
                 [adCell.sc setContentOffset:CGPointMake(0,(maxOff - scrollOff))];
             }
@@ -88,4 +128,4 @@
 }
 
 
-@end
+    @end
